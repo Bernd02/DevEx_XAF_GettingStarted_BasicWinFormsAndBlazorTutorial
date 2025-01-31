@@ -1,9 +1,12 @@
-﻿using DevExpress.ExpressApp.DC;
+﻿using DevExpress.ExpressApp.ConditionalAppearance;
+using DevExpress.ExpressApp.DC;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl.EF;
+using DevExpress.Persistent.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +14,15 @@ using System.Threading.Tasks;
 namespace SimpleProjectManager.Module.BusinessObjects;
 
 [NavigationItem(Constants.NavigationItems.PLANNING)]
+[RuleCriteria(
+	$"{nameof(EndDate)} >= {nameof(StartDate)}",
+	CustomMessageTemplate = "Start Date must be less than End Date")]
+
+[Appearance(
+	"InProgress",
+	TargetItems = $"{nameof(Subject)};{nameof(AssignedTo)}",
+	Criteria = $"{nameof(Status)} = 1",
+	BackColor = nameof(Color.LemonChiffon))]
 public class ProjectTask : BaseObject
 {
 	[FieldSize(255)]

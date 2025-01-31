@@ -25,6 +25,11 @@ public class Customer : BaseObject
 
 	public virtual IList<Testimonial> Testimonials { get; set; } = new ObservableCollection<Testimonial>();
 
+	public virtual string FullName
+	{
+		get => ObjectFormatter.Format("{FirstName} {LastName} ({Company})", this, EmptyEntriesMode.RemoveDelimiterWhenEntryIsEmpty);
+	}
+
 	[VisibleInListView(false)]
 	[ImageEditor(ListViewImageEditorCustomHeight = 75, DetailViewImageEditorFixedHeight = 150)]
 	public virtual MediaDataObject Photo { get; set; }

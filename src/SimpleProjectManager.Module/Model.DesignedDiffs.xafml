@@ -1,5 +1,9 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="SimpleProjectManager">
-  <Views>
-  </Views>
+  <BOModel>
+    <Class Name="SimpleProjectManager.Module.BusinessObjects.Customer" ObjectCaptionFormat="{0:FullName}" />
+  </BOModel>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="24.2.3.0" IsNewNode="True" />
+  </SchemaModules>
 </Application>

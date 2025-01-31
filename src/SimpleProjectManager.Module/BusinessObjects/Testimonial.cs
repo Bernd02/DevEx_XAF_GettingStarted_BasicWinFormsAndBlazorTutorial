@@ -13,6 +13,7 @@ namespace SimpleProjectManager.Module.BusinessObjects;
 [NavigationItem(Constants.NavigationItems.MARKETING)]
 public class Testimonial : BaseObject
 {
+	[FieldSize(FieldSizeAttribute.Unlimited)]
 	public virtual string Quote { get; set; }
 
 	[FieldSize(512)]
